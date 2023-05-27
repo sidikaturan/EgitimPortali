@@ -274,9 +274,6 @@ namespace Uygulama.Controllers
             }
             else
                 return RedirectToAction("TestCevaplarim", "Ogrenci", new { id = id });
-
-
-
         }
         [HttpPost]
         public async Task<IActionResult> Test(int id, TestCevapPostRequest p)
