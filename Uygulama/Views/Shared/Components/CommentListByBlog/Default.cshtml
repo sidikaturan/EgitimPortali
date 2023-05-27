@@ -1,0 +1,28 @@
+﻿@using static Uygulama.ViewComponents.Comment.CommentListByBlog
+@model List<Class1>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="comments">
+    <h3 class="aside-title ">Dersin Yorumları</h3>
+    <div class="comments-grids">
+        @foreach (var x in Model)
+        {
+            <div class="media-grid">
+                <div class="media">
+                    <div class="media-body comments-grid-right">
+                        <div class="comment-body">
+                            <p>@x.Name</p>
+                        </div>
+                        <ul class="p-0">
+                            <li class="">
+                                @x.CreatedAt
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

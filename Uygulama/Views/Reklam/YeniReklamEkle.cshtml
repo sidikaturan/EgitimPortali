@@ -1,0 +1,23 @@
+﻿@using EgitimPortali.Request.Reklamlar
+@model ReklamlarPostRequest
+@{
+    ViewData["Title"] = "YeniReklamEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>YeniReklamEkle</h1>
+
+<form class="form-group" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label>Reklam ÜstBaşlık</label>
+
+        <input type="text" placeholder="Reklam ÜstBaşlık" name="UstBaslik" class="form-control">
+        <label>Reklam İçerik</label>
+
+        <input type="text" placeholder="Reklam İçerik" name="Icerik" class="form-control">
+
+        <label>Reklam Görseli</label>
+        <input type="file" name="n" />
+    </div>
+    <button class="btn btn-primary" type="submit">Reklamı Ekle</button>
+</form>

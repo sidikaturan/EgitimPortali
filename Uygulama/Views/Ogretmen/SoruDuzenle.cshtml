@@ -1,0 +1,89 @@
+﻿@using EgitimPortali.DTO
+@model TestSoruDto
+@{
+    ViewData["Title"] = "SoruDuzenle";
+    Layout = "~/Views/Shared/_OgretmenLayout.cshtml";
+}
+
+<div class="col-lg-12">
+    <div class="ibox-title">
+        <h5>Soru Düzenleme Sayfası</h5>
+    </div>
+    <div class="ibox-content">
+        <form method="post">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="TestId" />
+            <div class="form-group row">
+                <label class="col-lg-2 col-form-label">Soru*</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" value="@Model.Soru" name="Soru" placeholder="Soru Giriniz..." required="">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-lg-2 col-form-label">Sorunun Sırası*</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" value="@Model.SoruSirasi" name="SoruSirasi" placeholder="Sorunun Sırasını Giriniz..." required="">
+                </div>
+            </div>
+            <br />
+            <div class="row col-12" id="writerget">
+                <div class="multi-fields col-lg-12">
+                    <div class="form-group row multi-field ">
+                        <label class="col-lg-2 col-form-label">A Şıkkı*</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" value="@Model.CevapA" id="myText" required="" name="CevapA">
+                        </div>
+                        <br />
+                    </div>
+                    <div class="form-group row multi-field ">
+                        <label class="col-lg-2 col-form-label">B Şıkkı*</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" value="@Model.CevapB" id="myText" required="" name="CevapB">
+                        </div>
+                        <br />
+                    </div>
+                    <div class="form-group row multi-field ">
+                        <label class="col-lg-2 col-form-label">C Şıkkı*</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" value="@Model.CevapC" id="myText" required="" name="CevapC">
+                        </div>
+                        <br />
+                    </div>
+                    <div class="form-group row multi-field ">
+                        <label class="col-lg-2 col-form-label">D Şıkkı*</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" value="@Model.CevapD" id="myText" required="" name="CevapD">
+                        </div>
+                        <br />
+                    </div>
+                    <div class="form-group row multi-field ">
+                        <label class="col-lg-2 col-form-label">E Şıkkı*</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" value="@Model.CevapE" id="myText" required="" name="CevapE">
+                        </div>
+                        <br />
+                    </div>
+                    <div class="form-group row multi-field ">
+                        <label class="col-sm-2 col-form-label">Doğru Şık</label>
+                        <div class="col-sm-10">
+                            <select asp-for="DogruCevap" class="form-control">
+                                <option>Lütfen Şık Seçiniz</option>
+                                <option value="1">A</option>
+                                <option value="2">B</option>
+                                <option value="3">C</option>
+                                <option value="4">D</option>
+                                <option value="5">E</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" style="float: right;" class="btn btn-primary">Soruyu Güncelle</button>
+            <br />
+            <br />
+        </form>
+    </div>
+    <br />
+    <br />
+</div>

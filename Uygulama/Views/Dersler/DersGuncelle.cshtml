@@ -1,0 +1,17 @@
+﻿@using EgitimPortali.DTO
+@model DerslerDto
+@{
+    ViewData["Title"] = "DersGuncelle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<form method="post">
+
+    @Html.Label("Ders Adı")
+    @Html.TextBoxFor(x=>x.Name, new { @class = "form-control" })
+    <br />
+    @Html.HiddenFor(x => x.Id, new { @class = "form-control" })
+    @Html.HiddenFor(x => x.KategorilerID, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+</form>
+

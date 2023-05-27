@@ -1,0 +1,31 @@
+﻿@using EgitimPortali.Request.Konular
+@model KonularUpdateRequest
+@{
+    ViewData["Title"] = "KonuGuncelle";
+    Layout = "~/Views/Shared/_OgretmenLayout.cshtml";
+}
+
+<h1>Konu Güncelleme Sayfası</h1>
+
+@using (Html.BeginForm("KonuGuncelle", "Ogretmen", FormMethod.Post))
+{
+
+    <input type="hidden" asp-for="DerslerID"/>
+   @* <select asp-for="DerslerID" class="form-control" asp-items="@(List<SelectListItem>)ViewBag.cv">
+        <option>Lütfen Konu Seçiniz</option>
+    </select>*@
+
+    <br />
+    @Html.HiddenFor(x=>x.Id)
+
+    @Html.Label("Konu Adı")
+    @Html.TextBoxFor(x=>x.Name, new { @class = "form-control" })
+    <br />
+    @Html.Label("Konu Sırası")
+    @Html.TextBoxFor(x=>x.KonuSirasi, new { @class = "form-control" })
+    <br />
+    @Html.Label("Konu Görseli")
+    @Html.TextBoxFor(x=>x.Resim, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Güncelle</button>
+}

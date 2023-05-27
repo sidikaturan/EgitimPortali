@@ -1,0 +1,69 @@
+﻿@using static Uygulama.Controllers.LoginController
+@model AuthenticateRequest
+@{
+    Layout = null;
+    var returnUrl = @Context.Request.Query["returnurl"];
+}
+
+                      
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<title>Eğitim Portalı Giriş Yap</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords"
+		content="Trendz Login Form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- //Meta tag Keywords -->
+	<!--/Style-CSS -->
+	<link rel="stylesheet" href="~/web/css/style.css" type="text/css" media="all" />
+	<!--//Style-CSS -->
+</head>
+
+<body>
+	<!-- /login-section -->
+
+	<section class="w3l-forms-23">
+		<div class="forms23-block-hny">
+			<div class="wrapper">
+			
+				<div class="d-grid forms23-grids">
+					<div class="form23">
+						<div class="main-bg">
+							<h6 class="sec-one">Giriş Yap</h6>
+							<div class="speci-login first-look">
+								<img src="~/web/images/user.png" alt="" class="img-responsive">
+							</div>
+						</div>
+						<div class="bottom-content">
+							<form method="post" asp-action="GirisYap" asp-route-returnurl="@returnUrl">
+								<input type="email" name="Mail" class="input-form" placeholder="Mail"
+										required="required" />
+								<input type="password" name="Sifre" class="input-form"
+										placeholder="Your Password" required="required" />
+								<button type="submit" class="loginhny-btn btn">Gİrİş Yap</button>
+							</form>
+							<p>Hesabın mı yok? <a href="/Login/KayitOl">Kayıt Ol</a></p>
+
+						</div>
+					</div>
+				</div>
+			
+			</div>
+		</div>
+	</section>
+	<!-- //login-section -->
+</body>
+
+</html>

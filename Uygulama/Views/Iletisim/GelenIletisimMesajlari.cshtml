@@ -1,0 +1,102 @@
+﻿@using EgitimPortali.DTO
+@model List<IletisimDto>
+
+@{
+    ViewData["Title"] = "GelenIletisimMesajlari";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html>
+
+
+
+<body>
+
+    <div id="wrapper">
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2>İletişim Mesajları</h2>
+
+            </div>
+            <div class="col-lg-2">
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content  animated fadeInRight blog">
+            <div class="row">
+                @foreach (var x in Model)
+                {
+                    <div class="col-lg-12">
+                        <div class="ibox">
+                            <div class="ibox-content">
+                                <a href="#" class="btn-link">
+                                    <h3>
+                                        @x.Konu
+                                    </h3>
+                                </a>
+                                <div class="small m-b-xs">
+                                    <strong>@x.Ad @x.Soyad</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> @(((DateTime)x.CreatedAt).ToString("dd-MMM-yyyy"))</span>
+                                </div>
+                                <p>
+                                    @x.Mesaj
+                                </p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <a href="/Iletisim/IletisimMesajiSil/@x.Id" data-id="@x.Id" class="btn btn-danger btn-xs demo4" type="button">Sil</a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="small text-right">
+                                            <div> <i class="fa fa-envelope-open"> </i> @x.Mail </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                }
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <script src="~/admin/js/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        $('.demo4').on('click', function (event) {
+            event.preventDefault();
+            var btn = $(this);
+            const url = $(this).attr('href');
+            swal({
+                title: 'Mesajı Silmek İstediğinizden Emin Misiniz ?',
+                text: "Mesajı silmeniz durumunda bir daha asla ulaşılamayacaktır.",
+                icon: 'info',
+                buttons: ["Vazgeç", "Onayla!"],
+            }).then(function (value) {
+                if (value) {
+                    var id = btn.data("id");
+                    $.ajax({
+                        url: "/Iletisim/IletisimMesajiSil/" + id,
+                        type: "post",
+                        dataType: "json",
+                        success: function (func) {
+                            window.location.reload();
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            window.location.reload();
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

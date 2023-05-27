@@ -1,0 +1,145 @@
+﻿@using EgitimPortali.DTO
+@using EgitimPortali.Request.Yorumlar
+@model DersIcerikleriDto
+
+@{
+    ViewData["Title"] = "Ders";
+    Layout = "~/Views/Shared/_AnasayfaLayout.cshtml";
+}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="~/Edu-School-Starter/assets/css/style-liberty.css">
+</head>
+
+<body>
+    <!-- inner banner -->
+    <section class="inner-banner py-5">
+        <div class="w3l-breadcrumb py-lg-5">
+            <div class="container pt-4 pb-sm-4">
+                <h4 class="inner-text-title pt-5">Geometri</h4>
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li class="active"><i class="fas fa-angle-right"></i>Geometri</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- //inner banner -->
+<div style="margin: 8px auto; display: block; text-align:center;">
+
+
+ 
+</div>
+    <section class="w3l-blogpost-content py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row">
+                <div class="text-11 col-lg-8">
+                    <div class="text11-content">
+                        <h1>@Model.Name</h1>
+                        <br />
+                        @Html.Raw(Model.Icerik)
+                        <br />
+                        <br />
+                        <h2>Dersin Pdfi</h2>
+                        <br />
+                        <article class="post post-large">
+                        <div class="post-video">
+                            <iframe title="En Kolay Üslü Sayılar  Notu" height="690" src="@Model.PdfYolu"></iframe>
+                        </div>
+                    </article>
+                       
+             
+                        @await Component.InvokeAsync("CommentListByBlog", new { id = ViewBag.id })
+                        <partial name="~/Views/MerkezeTeget/YorumYap.cshtml" model="new YorumlarPostRequest{ DersIcerikleriID = ViewBag.id}" />
+
+                    </div>
+                </div>
+                <div class="sidebar-side col-lg-4 col-md-12 col-sm-12 mt-lg-0 mt-5 ps-md-5">
+                    <aside class="sidebar">
+                   @*     <div class="sidebar-widget sidebar-blog-category">
+                            <div class="sidebar-title">
+                                <h4>Sitede Ara</h4>
+                            </div>
+                            <form action="#" class="search-box" method="post">
+                                <div class="form-group">
+                                    <input type="search" name="search" placeholder="Matematik..." required="">
+                                    <button><span class="fa fa-search"></span></button>
+                                </div>
+                            </form>
+                        </div>*@
+
+                        <!--Blog Category Widget-->
+               
+                        @await Component.InvokeAsync("DersMenu")
+
+                        <!-- Popular Post Widget-->
+                        @await Component.InvokeAsync("Son3Ders", new { id = ViewBag.konuid })
+
+                        <!-- sidebar sticky -->
+                        <div class="sidebar-sticky">
+                            <div class="sidebar-sticky-fix">
+                                <!-- Tags Widget-->
+                                <div class="sidebar-widget popular-tags">
+                                    <div class="sidebar-title">
+                                        <h4>Tags</h4>
+                                    </div>
+                                    <a href="#url">Matematik</a>
+                                    <a href="#url">Türkçe</a>
+                                    <a href="#url">Tyt</a>
+                                    <a href="#url">Ayt</a>
+                                    <a href="#url">Geometri</a>
+                                    <a href="#url">Fizik</a>
+                                    <a href="#url">Kpss</a>
+                                    <a href="#url">Dgs</a>
+                                    <a href="#url">Kimya</a>
+                                    <a href="#url">Biyoloji</a>
+                                    <a href="#url">Tarih</a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- //sidebar sticky -->
+
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<div style="margin: 8px auto; display: block; text-align:center;">
+
+<!---728x90--->
+ 
+</div>
+    <!-- Js scripts -->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fas fa-level-up-alt" aria-hidden="true"></span>
+    </button>
+    
+    <!-- //move top -->
+
+    <!-- common jquery plugin -->
+    <!-- //common jquery plugin -->
+
+    <!-- theme switch js (light and dark)-->
+    <!-- //theme switch js (light and dark)-->
+
+    <!-- MENU-JS -->
+   
+    <!-- //MENU-JS -->
+
+    <!-- disable body scroll which navbar is in active -->
+
+    <!-- //disable body scroll which navbar is in active -->
+
+    <!-- bootstrap -->
+    <!-- //bootstrap -->
+    <!-- //Js scripts -->
+
+</body>
+
+</html>

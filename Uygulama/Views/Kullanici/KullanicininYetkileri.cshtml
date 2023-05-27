@@ -1,0 +1,65 @@
+﻿@using EgitimPortali.DTO
+@model List<KullaniciRolDto>
+@{
+    ViewData["Title"] = "KullanicininYetkileri";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<a href="/Kullanici/KullaniciYetkilendirme/@ViewBag.id" class="btn btn-primary" style="float: right;">Yeni Yetki Ekle</a>
+<br />
+<br />
+<div class="ibox ">
+    <div class="ibox-title">
+        <h5>Kullanıcı Yetkilendirme Sayfası</h5>
+        <div class="ibox-tools">
+        </div>
+    </div>
+    <div class="ibox-content">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th><center>Yetki Adı</center></th>
+                    <th><center>Yetkiyi Sil</center></th>
+                </tr>
+            </thead>
+            @foreach (var x in Model)
+            {
+                <tr>
+
+                    <td><center>@x.Roller.Name</center></td>
+                    <td><center><a href="/Kullanici/KullaniciYetkiSil/@x.Id" data-id="@x.Id" class="btn btn-danger demo4">Sil</a></center></td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+<script src="~/admin/js/jquery-3.1.1.min.js" type="text/javascript"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    $('.demo4').on('click', function (event) {
+        event.preventDefault();
+        var btn = $(this);
+        const url = $(this).attr('href');
+        swal({
+            title: 'Kullanıcının Rolünü Kaldırmak İstediğinizden Emin Misiniz ?',
+            text: "Kullanıcının rolünü kaldırmanız durumunda kullanıcının bazı işlemleri yapması engellenecektir.",
+            icon: 'info',
+            buttons: ["Vazgeç", "Onayla!"],
+        }).then(function (value) {
+            if (value) {
+                var id = btn.data("id");
+                $.ajax({
+                    url: "/Kullanici/KullaniciYetkiSil/" + id,
+                    type: "post",
+                    dataType: "json",
+                    success: function (func) {
+                        window.location.reload();
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        window.location.reload();
+                    }
+                });
+            }
+        });
+    });
+</script>

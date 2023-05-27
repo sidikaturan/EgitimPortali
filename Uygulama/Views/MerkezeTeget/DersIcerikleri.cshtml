@@ -1,0 +1,245 @@
+﻿@model KonuIcerikleris
+@{
+    ViewData["Title"] = "DersIcerikleri";
+    Layout = "~/Views/Shared/_AnasayfaLayout.cshtml";
+}
+
+<body>
+
+    <head>
+        <link rel="stylesheet" href="~/Edu-School-Starter/assets/css/style-liberty.css">
+    </head>
+
+
+    <!-- header -->
+    <!-- //header -->
+    <!-- inner banner -->
+    <section class="inner-banner py-5">
+        <div class="w3l-breadcrumb py-lg-5">
+            <div class="container pt-4 pb-sm-4">
+                <h4 class="inner-text-title pt-5">Ders İçerikleri</h4>
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="/MerkezeTeget/Anasayfa">Ana Sayfa</a></li>
+                    <li class="active"><i class="fas fa-angle-right"></i>Ders İçerikleri</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- //inner banner -->
+    <div style="margin: 8px auto; display: block; text-align:center;">
+
+        <!---728x90--->
+
+
+    </div>
+    <!-- blog-post -->
+    <section class="w3l-blogpost-content py-5">
+
+        <div class="container py-md-5 py-4">
+            <h2>@ViewBag.dersad</h2>
+
+            <div class="row">
+                <div class="col-lg-8 w3l-blog-block-5">
+                    <br />
+                    <div class="row">
+                        @foreach (var x in Model.dersIcerikleriDtos)
+                        {
+                            <div class="col-md-6">
+                                <div class="blog-card-single">
+                                    <div class="grids5-info">
+                                        <a href="/MerkezeTeget/Ders/@x.Id">
+                                            <img src="@x.Resim" style="height:200px;" alt="">
+                                        </a>
+                                        <div class="blog-info">
+                                            <h4><a href="/MerkezeTeget/Ders/@x.Id">@x.Name</a></h4>
+
+                                            <div class="d-flex align-items-center justify-content-between mt-4">
+                                                <a class="d-flex align-items-center" href="#blog" title="23k followers">
+                                                </a>
+                                                <p class="date-text">
+                                                    <i class="far fa-calendar-alt me-1"></i>@x.CreatedAt
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                            </div>
+                        }
+                        @foreach (var x in Model.Tests)
+                        {
+                            <div class="col-md-6">
+                                <div class="blog-card-single">
+                                    <div class="grids5-info">
+                                        <a href="/MerkezeTeget/Ders/@x.Id">
+                                            <img src="https://im.haberturk.com/2022/06/17/ver1655502597/3470624_810x458.jpg" style="height:200px;" alt="">
+                                        </a>
+                                        <div class="blog-info">
+                                            <h4><a href="/MerkezeTeget/Test/@x.Id">@x.Name</a></h4>
+
+                                            <div class="d-flex align-items-center justify-content-between mt-4">
+                                                <a class="d-flex align-items-center" href="#blog" title="23k followers">
+                                                </a>
+                                                <p class="date-text">
+                                                    <i class="far fa-calendar-alt me-1"></i>@x.CreatedAt
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                            </div>
+                        }
+                    </div>
+               @*     <!-- pagination -->
+                    <div class="pagination-style text-start mt-5">
+                        <ul>
+                            <li>
+                                <a href="#none" class="not-allowed" disabled="">
+                                    <span class="fa fa-angle-double-left" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                            <li><a class="active" href="#page">1</a></li>
+                            <li>
+                                <a href="#page">2</a>
+                            </li>
+                            <li>
+                                <a href="#page">3</a>
+                            </li>
+                            <li>
+                                <a href="#page">
+                                    <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- //pagination -->*@
+                </div>
+                <div class="sidebar-side col-lg-4 col-md-12 col-sm-12 mt-lg-0 mt-5 ps-md-5">
+                    <aside class="sidebar">
+                        <div class="sidebar-widget sidebar-blog-category">
+                            <div class="sidebar-title">
+                                <h4>Sitede Ara</h4>
+                            </div>
+                            <form action="#" class="search-box" method="post">
+                                <div class="form-group">
+                                    <input type="search" name="search" placeholder="Matematik..." required="">
+                                    <button><span class="fa fa-search"></span></button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!--Blog Category Widget-->
+                        @await Component.InvokeAsync("DersMenu")
+
+
+
+                        <!-- sidebar sticky -->
+                        <div class="sidebar-sticky">
+                            <div class="sidebar-sticky-fix">
+                                <!-- Tags Widget-->
+                                <div class="sidebar-widget popular-tags">
+                                    <div class="sidebar-title">
+                                        <h4>Tags</h4>
+                                    </div>
+                                    <a href="#url">Art &amp; Design</a>
+                                    <a href="#url">Education</a>
+                                    <a href="#url">Studies</a>
+                                    <a href="#url">Course</a>
+                                    <a href="#url">Videos</a>
+                                    <a href="#url">School</a>
+                                    <a href="#url">Learning</a>
+                                    <a href="#url">Reading</a>
+                                    <a href="#url">Knowledge</a>
+                                    <a href="#url">Safe</a>
+                                    <a href="#url">Environment</a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- //sidebar sticky -->
+
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //blog-posts -->
+    <div style="margin: 8px auto; display: block; text-align:center;">
+
+
+
+        <!-- Js scripts -->
+        <!-- move top -->
+        <button onclick="topFunction()" id="movetop" title="Go to top" style="display: block;">
+            <span class="fas fa-level-up-alt" aria-hidden="true"></span>
+        </button>
+        <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+        </script>
+        <!-- //move top -->
+        <!-- common jquery plugin -->
+        <!-- //common jquery plugin -->
+        <!-- theme switch js (light and dark)-->
+        <!-- //theme switch js (light and dark)-->
+        <!-- MENU-JS -->
+        <script>
+            $(window).on("scroll", function() {
+                var scroll = $(window).scrollTop();
+
+                if (scroll >= 80) {
+                    $("#site-header").addClass("nav-fixed");
+                } else {
+                    $("#site-header").removeClass("nav-fixed");
+                }
+            });
+
+            //Main navigation Active Class Add Remove
+            $(".navbar-toggler").on("click", function() {
+                $("header").toggleClass("active");
+            });
+            $(document).on("ready", function() {
+                if ($(window).width() > 991) {
+                    $("header").removeClass("active");
+                }
+                $(window).on("resize", function() {
+                    if ($(window).width() > 991) {
+                        $("header").removeClass("active");
+                    }
+                });
+            });
+        </script>
+        <!-- //MENU-JS -->
+        <!-- disable body scroll which navbar is in active -->
+        <script>
+            $(function() {
+                $('.navbar-toggler').click(function() {
+                    $('body').toggleClass('noscroll');
+                })
+            });
+        </script>
+        <!-- //disable body scroll which navbar is in active -->
+        <!-- bootstrap -->
+        <!-- //bootstrap -->
+        <!-- //Js scripts -->
+
+
+
+</body></html>

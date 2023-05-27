@@ -1,0 +1,17 @@
+﻿@using EgitimPortali.DTO
+@model List<DerslerDto>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="sidebar-widget sidebar-blog-category">
+    <div class="sidebar-title">
+        <h4>Dersler</h4>
+    </div>
+    
+    <ul class="blog-cat">
+        @foreach(var x in Model)
+        {
+        <li><a href="/MerkezeTeget/Konular/@x.Id">@x.Name</a></li>
+        }
+    </ul>
+</div>

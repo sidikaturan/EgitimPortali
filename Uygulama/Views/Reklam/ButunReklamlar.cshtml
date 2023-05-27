@@ -1,0 +1,42 @@
+﻿@using EgitimPortali.DTO
+@model List<ReklamlarDto>
+@{
+    ViewData["Title"] = "ButunReklamlar";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="ibox">
+    <div class="ibox-title">
+        <h5>Bütün Reklamlar</h5>
+        <div class="ibox-tools">
+            <a href="/Reklam/YeniReklamEkle" class="btn btn-success btn-xs">Yeni Reklam Ekle</a>
+        </div>
+    </div>
+    <div class="ibox-content">
+        <div class="project-list">
+            <table class="table table-hover">
+                <tbody>
+                    @foreach(var x in Model)
+                    {
+                        <tr>
+                            <td class="project-status">
+                                <span class="label label-primary">Yayında</span>
+                            </td>
+                            <td class="project-title">
+                                <a href="project_detail.html">@x.UstBaslik</a>
+                                <br>
+                                <small>Oluşturulma Tarihi</small>
+                            </td>
+                            <td class="project-actions">
+                                <a href="/Reklam/ReklamiGoruntule/@x.Id" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Güncelle </a>
+                                <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-folder"></i> Sil </a>
+
+                            </td>
+                        </tr>
+                    }
+                                       
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

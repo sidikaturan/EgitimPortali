@@ -1,0 +1,71 @@
+﻿@using EgitimPortali.DTO
+@model List<KullaniciDto>
+@{
+    ViewData["Title"] = "ButunKullanicilar";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="wrapper">
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                @foreach (var x in Model)
+                {
+                    <div class="col-lg-3">
+                        <div class="contact-box center-version">
+                            <a href="/Admin/Yazarlar/YazarDuzenle/@x.Id">
+                                <img alt="image" class="rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv15kLBXI8uMtilXDV36Kku5BH1pRMYyYxb-LR9Gnc3ED61ojTXRPqmM1B482vmShzDm4&usqp=CAU">
+                                <h3 class="m-b-xs"><strong>@x.Ad @x.Soyad</strong></h3>
+@*                                <div class="font-bold">@x.</div>
+*@                                <address class="m-t-md">
+                                    <strong>@x.Mail</strong><br>
+                                </address>
+                            </a>
+                            <div class="contact-box-footer">
+                                <div class="m-t-xs btn-group">
+                                    <a href="/Kullanici/KullanicininYetkileri/@x.Id" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i> Yetkilendir </a>
+                                    &nbsp;
+                                    <a href="/Kullanici/KullaniciSil/@x.Id" data-id="@x.Id" class="btn btn-xs btn-danger demo4"><i class="fa fa-trash"></i> Kullanıcıyı Sil</a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+<script src="~/admin/js/jquery-3.1.1.min.js" type="text/javascript"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    $('.demo4').on('click', function (event) {
+        event.preventDefault();
+        var btn = $(this);
+        const url = $(this).attr('href');
+        swal({
+            title: 'Kullanıcıyı Silmek İstediğinizden Emin Misiniz ?',
+            text: "Kullanıcıyı silmeniz durumunda bu kullanıcı sistemi bir daha kullanamayacaktır.",
+            icon: 'info',
+            buttons: ["Vazgeç", "Onayla!"],
+        }).then(function (value) {
+            if (value) {
+                var id = btn.data("id");
+                $.ajax({
+                    url: "/Kullanici/KullaniciSil/" + id,
+                    type: "post",
+                    dataType: "json",
+                    success: function (func) {
+                        window.location.reload();
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        window.location.reload();
+                    }
+                });
+            }
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,33 @@
+﻿@using EgitimPortali.DTO
+@model List<SorularDto>
+@{
+    ViewData["Title"] = "SorulanSorular";
+    Layout = "~/Views/Shared/_OgrenciLayout.cshtml";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-12">
+        <h2>Sorulan Sorular</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="wrapper wrapper-content animated fadeInUp">
+
+            <ul class="notes">
+                @foreach (var x in Model)
+                {
+                    <li>
+                        <div>
+                            <small>@x.CreatedAt</small>
+                            <h4>@x.Dersler.Name</h4>
+                            <p>@x.Name</p>
+                            <a href="/Ogrenci/SoruDetay/@x.Id" class="btn btn-xs btn-outline btn-success">Soruya Gelen Yanıtlar</a>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

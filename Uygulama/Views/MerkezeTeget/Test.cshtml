@@ -1,0 +1,132 @@
+﻿@using EgitimPortali.DTO
+@model List<TestSoruDto>
+@{
+    ViewData["Title"] = "Test";
+    Layout = "~/Views/Shared/_AnasayfaLayout.cshtml";
+}
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="~/Edu-School-Starter/assets/css/style-liberty.css">
+</head>
+
+<body>
+    <!-- inner banner -->
+    <section class="inner-banner py-5">
+        <div class="w3l-breadcrumb py-lg-5">
+            <div class="container pt-4 pb-sm-4">
+                <h4 class="inner-text-title pt-5">Geometri</h4>
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li class="active"><i class="fas fa-angle-right"></i>Geometri</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- //inner banner -->
+    <form action="/MerkezeTeget/Test/@ViewBag.id" method="post">
+        <section class="w3l-blogpost-content py-5">
+            <div class="container py-md-5 py-4">
+                <div class="row">
+                    <div class="text-11 col-lg-12">
+                        <div class="text11-content">
+                            @{
+                                int a = 1;
+                            }
+                            @foreach (var x in Model)
+                            {
+                                <label>@a-) @x.Soru</label>
+                                <br />
+                                @if (x.SoruGorsel != null)
+                                {
+                                    <img src="@x.SoruGorsel" height="300px;" width="570px;">
+                                }
+                                <br />
+                                <br />
+                                a++;
+                                <div class="skin skin-minimal">
+                                    <div class="radio-list">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="@x.Id A" name="@x.Id" value="1" class="custom-control-input">
+                                            <label class="custom-control-label" for="@x.Id A">
+                                               A-) @x.CevapA
+                                            </label>
+                                        </div>
+                                        @if (x.GorselA != null)
+                                        {
+                                            <img src="@x.GorselA" height="150px;" width="250px;">
+                                        }
+                                    </div>
+                                </div>
+                                <div class="skin skin-minimal">
+                                    <div class="radio-list">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="@x.Id B" name="@x.Id" value="2" class="custom-control-input">
+                                            <label class="custom-control-label" for="@x.Id B">
+                                                B-) @x.CevapB
+                                            </label>
+                                        </div>
+                                        @if (x.GorselB != null)
+                                        {
+                                            <img src="@x.GorselB" height="150px;" width="250px;">
+                                        }
+                                    </div>
+                                </div>
+                                <div class="skin skin-minimal">
+                                    <div class="radio-list">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="@x.Id C" name="@x.Id" value="3" class="custom-control-input">
+                                            <label class="custom-control-label" for="@x.Id C">
+                                                C-) @x.CevapC
+                                            </label>
+                                        </div>
+                                        @if (x.GorselC != null)
+                                        {
+                                            <img src="@x.GorselC" height="150px;" width="250px;">
+                                        }
+                                    </div>
+                                </div>
+                                <div class="skin skin-minimal">
+                                    <div class="radio-list">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="@x.Id D" name="@x.Id" value="4" class="custom-control-input">
+                                            <label class="custom-control-label" for="@x.Id D">
+                                                D-) @x.CevapD
+                                            </label>
+                                        </div>
+                                    </div>
+                                    @if (x.GorselD != null)
+                                    {
+                                        <img src="@x.GorselD" height="150px;" width="250px;">
+                                    }
+                                </div>
+                                <div class="skin skin-minimal">
+                                    <div class="radio-list">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="@x.Id E" name="@x.Id" value="5" class="custom-control-input">
+                                            <label class="custom-control-label" for="@x.Id E">
+                                                E-) @x.CevapE
+                                            </label>
+                                        </div>
+                                        @if (x.GorselE != null)
+                                        {
+                                            <img src="@x.GorselE" height="150px;" width="250px;">
+                                        }
+                                    </div>
+                                </div>
+                                <br />
+                                <br />
+                            }
+                            <button type="submit" class="btn btn-success" style="float: right;">Testi Bitir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </form>
+</body>
+
+</html>

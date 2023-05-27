@@ -1,0 +1,169 @@
+﻿@using EgitimPortali.DTO
+@model List<KonularDto>
+@{
+    ViewData["Title"] = "Konular";
+    Layout = "~/Views/Shared/_AnasayfaLayout.cshtml";
+}
+
+
+<!doctype html>
+<html lang="en">
+<body>
+    <section class="inner-banner py-5">
+        <div class="w3l-breadcrumb py-lg-5">
+            <div class="container pt-4 pb-sm-4">
+                <h4 class="inner-text-title pt-5">Courses</h4>
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="/MerkezeTeget/AnaSayfa">Ana Sayfa</a></li>
+                    <li class="active"><i class="fas fa-angle-right"></i>Konular</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- //inner banner -->
+    <!-- courses section -->
+    <div class="w3l-grids-block-5 py-5">
+        <div class="container py-md-5 py-4">
+            <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
+                <p class="text-uppercase">@ViewBag.kategori</p>
+                <h3 class="title-style">@ViewBag.dersicerigi</h3>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="coursecard-single">
+                        <div class="grids5-info position-relative">                      
+                            <img src="https://media.istockphoto.com/id/1191670843/tr/foto%C4%9Fraf/siyah-duvar-da-soru-i%C5%9Fareti-%C5%9Fekilli-mavi-neon-i%C5%9F%C4%B1k-soru-i%C5%9Faretini-g%C3%B6steren-son-derece.jpg?s=170667a&w=0&k=20&c=tsOsXIacao7wSt5uZSU8dT07JIgl5cm18QMF2SLdHJ8=" alt="" class="img-fluid" />
+                            <div class="meta-list">
+                                <a href="/MerkezeTeget/SoruCevap/@ViewBag.id">@ViewBag.kategori</a>
+                            </div>
+                        </div>
+                        <div class="content-main-top">
+                            <div class="content-top mb-4 mt-3">
+                                <ul class="list-unstyled d-flex align-items-center justify-content-between">
+                                </ul>
+                            </div>
+                            <h4><a href="/MerkezeTeget/SoruCevap/@ViewBag.id">@ViewBag.dersicerigi Soruları</a></h4>
+                            <p>@ViewBag.dersicerigi</p>
+                            <div class="top-content-border d-flex align-items-center justify-content-between mt-4 pt-4">
+                                <h6></h6>
+
+                                <a class="btn btn-style-primary" href="/MerkezeTeget/SoruCevap/@ViewBag.id">
+                                    Sorulara Git<i class="fas fa-arrow-right" ></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @foreach (var x in Model)
+                {
+                    <div class="col-lg-4 col-md-6">
+                        <div class="coursecard-single">
+                            <div class="grids5-info position-relative">
+                                @if (x.Resim != null)
+                                {
+                                    <img src="@x.Resim" alt="" class="img-fluid" />
+                                }
+                                else
+                                {
+                                    <img src="https://i.ytimg.com/vi/UqA603gAB-g/maxresdefault.jpg" alt="" class="img-fluid" />
+                                }
+                                <div class="meta-list">
+                                    <a href="/MerkezeTeget/DersIcerikleri/@x.Id">@ViewBag.kategori</a>
+                                </div>
+                            </div>
+                            <div class="content-main-top">
+                                <div class="content-top mb-4 mt-3">
+                                    <ul class="list-unstyled d-flex align-items-center justify-content-between">
+                                    </ul>
+                                </div>
+                                <h4><a href="/MerkezeTeget/DersIcerikleri/@x.Id">@x.Name</a></h4>
+                                <p>@ViewBag.dersicerigi</p>
+                                <div class="top-content-border d-flex align-items-center justify-content-between mt-4 pt-4">
+                                    <h6></h6>
+                                    <a class="btn btn-style-primary" href="/MerkezeTeget/DersIcerikleri/@x.Id">
+                                        Derse Git<i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fas fa-level-up-alt" aria-hidden="true"></span>
+    </button>
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("movetop").style.display = "block";
+            } else {
+                document.getElementById("movetop").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+    <!-- //move top -->
+    <!-- common jquery plugin -->
+    <script src="~/Edu-School-Starter/assets/js/jquery-3.3.1.min.js"></script>
+    <!-- //common jquery plugin -->
+    <!-- theme switch js (light and dark)-->
+    <script src="~/Edu-School-Starter/assets/js/theme-change.js"></script>
+    <!-- //theme switch js (light and dark)-->
+    <!-- MENU-JS -->
+    <script>
+        $(window).on("scroll", function() {
+            var scroll = $(window).scrollTop();
+
+            if (scroll >= 80) {
+                $("#site-header").addClass("nav-fixed");
+            } else {
+                $("#site-header").removeClass("nav-fixed");
+            }
+        });
+
+        //Main navigation Active Class Add Remove
+        $(".navbar-toggler").on("click", function() {
+            $("header").toggleClass("active");
+        });
+        $(document).on("ready", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+            $(window).on("resize", function() {
+                if ($(window).width() > 991) {
+                    $("header").removeClass("active");
+                }
+            });
+        });
+    </script>
+    <!-- //MENU-JS -->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+        $(function() {
+            $('.navbar-toggler').click(function() {
+                $('body').toggleClass('noscroll');
+            })
+        });
+    </script>
+    <!-- //disable body scroll which navbar is in active -->
+    <!-- bootstrap -->
+    <!-- //bootstrap -->
+    <!-- //Js scripts -->
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+﻿@using EgitimPortali.Request.Test
+@model TestPostRequest
+@{
+    ViewData["Title"] = "TestEkle";
+    Layout = "~/Views/Shared/_OgretmenLayout.cshtml";
+}
+<br />
+<div class="col-lg-12">
+    <div class="ibox ">
+        <div class="ibox-title">
+            <h5>Yeni Test Oluşturma Sayfası</h5>
+            <div class="ibox-tools">
+                <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <form method="post">
+                <input type="hidden" asp-for="KonularID" value="@ViewBag.id" />
+
+                <div class="form-group row">
+                    <label class="col-lg-2 col-form-label">Test Adı</label>
+                    <div class="col-lg-10">
+                        <input type="text" placeholder="Test Adı" name="Name" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-lg-offset-2 col-lg-10">
+                        <button type="submit" class="btn btn-primary">Test Oluştur</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+

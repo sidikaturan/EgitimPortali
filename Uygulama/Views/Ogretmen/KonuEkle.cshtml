@@ -1,0 +1,23 @@
+﻿@using EgitimPortali.Request.Konular
+@model KonularPostRequest
+@{
+    ViewData["Title"] = "KonuEkle";
+    Layout = "~/Views/Shared/_OgretmenLayout.cshtml";
+}
+
+<h1>Yeni Konu Ekleme Sayfası</h1>
+@using (Html.BeginForm("KonuEkle", "Ogretmen", FormMethod.Post))
+{   
+@*    <select asp-for="DerslerID" class="form-control" asp-items="@(List<SelectListItem>)ViewBag.cv">
+         <option>Lütfen Konu Seçiniz</option>
+    </select>*@
+    <input type="hidden" asp-for="DerslerID" value="@ViewBag.cv" />
+
+    <br />
+    @Html.Label("Konu Adı")
+    @Html.TextBoxFor(x=>x.Name, new { @class = "form-control" })
+    @Html.Label("Konu Görseli")
+    @Html.TextBoxFor(x=>x.Resim, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Ekle</button>
+}

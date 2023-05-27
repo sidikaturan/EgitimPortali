@@ -1,0 +1,125 @@
+﻿@using EgitimPortali.DTO
+@model List<TestSoruDto>
+@{
+    ViewData["Title"] = "Test";
+    Layout = "~/Views/Shared/_OgretmenLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="ibox-content m-b-sm border-bottom">
+                <div class="text-center p-lg">
+
+                    <a href="/MerkezeTeget/Test/@ViewBag.id"><button title="Teste Git" class="btn btn-warning btn-sm"><i class="fa fa-link"></i> <span class="bold">Teste Git</span></button></a>
+                    <br />
+                    <br />
+                    <span>Bu sayfada testinize yeni sorular ekleyebilir ve güncelleyebilirsiniz.</span>
+                    <br />
+                    <br />
+                    <a href="/Ogretmen/SoruEkle/@ViewBag.id"><button title="Yeni Soru Ekle" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> <span class="bold">Yeni Soru Ekle</span></button></a>
+                </div>
+            </div>
+            <div class="faq-item">
+                @foreach (var x in Model)
+                {
+                    <div class="row container">
+                        <div class="col-md-8">
+                            <h4 class="card-title">@x.Soru</h4>
+                            @if (x.SoruGorsel != null)
+                            {
+                                <img src="@x.SoruGorsel" height="170px;" width="270px;">
+                            }
+                            <div class="skin skin-minimal">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered cxd">
+                                                <div class="skin skin-minimal">
+                                                    <div class="radio-list">
+
+                                                        <div class="custom-control custom-radio">
+                                                            <input type="radio" id=".CevapID" name="x.SoruID" value="order.CevapID" class="custom-control-input">
+                                                            <label class="custom-control-label" for="order.CevapID">
+                                                                @x.CevapA
+                                                            </label>
+
+                                                        </div>
+                                                        @if (x.GorselA != null)
+                                                        {
+                                                            <img src="@x.GorselA" height="150px;" width="250px;">
+                                                        }
+                                                        <div class="custom-control custom-radio">
+                                                            <input type="radio" id=".CevapID" name="x.SoruID" value="order.CevapID" class="custom-control-input">
+                                                            <label class="custom-control-label" for="order.CevapID">
+                                                                @x.CevapB
+                                                            </label>
+
+
+                                                        </div>
+                                                        @if (x.GorselB != null)
+                                                        {
+                                                            <img src="@x.GorselB" height="150px;" width="250px;">
+                                                        }
+                                                        <div class="custom-control custom-radio">
+                                                            <input type="radio" id=".CevapID" name="x.SoruID" value="order.CevapID" class="custom-control-input">
+                                                            <label class="custom-control-label" for="order.CevapID">
+                                                                @x.CevapC
+                                                            </label>
+
+                                                        </div>
+                                                        @if (x.GorselC != null)
+                                                        {
+                                                            <img src="@x.GorselC" height="150px;" width="250px;">
+                                                        }
+                                                        <div class="custom-control custom-radio">
+                                                            <input type="radio" id=".CevapID" name="x.SoruID" value="order.CevapID" class="custom-control-input">
+                                                            <label class="custom-control-label" for="order.CevapID">
+                                                                @x.CevapD
+                                                            </label>
+
+                                                        </div>
+                                                        @if (x.GorselD != null)
+                                                        {
+                                                            <img src="@x.GorselD" height="150px;" width="250px;">
+                                                        }
+                                                        <div class="custom-control custom-radio">
+                                                            <input type="radio" id=".CevapID" name="x.SoruID" value="order.CevapID" class="custom-control-input">
+                                                            <label class="custom-control-label" for="order.CevapID">
+                                                                @x.CevapE
+                                                            </label>
+
+                                                        </div>
+                                                        @if (x.GorselE != null)
+                                                        {
+                                                            <img src="@x.GorselE" height="150px;" width="250px;">
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+
+                            <row>
+                                <a href="/Ogretmen/SoruDuzenle/@x.Id" class="btn btn-info btn-sm">
+                                    <i class="fa fa-edit"></i> Soruyu Güncelle
+                                </a>
+                                <a href="/Ogretmen/TestSoruSil/@x.Id" class="btn btn-danger btn-sm delete-confirm" id="btn_4" style="float: right;">
+                                    <i class="fa fa-trash"></i>
+                                    Sil
+                                </a>
+
+                            </row>
+                        </div>
+                    </div>
+                }
+            </div>
+            <hr />
+        </div>
+    </div>
+</div>

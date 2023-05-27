@@ -1,0 +1,18 @@
+﻿@using EgitimPortali.Request.KullanicilarinRolleri
+@model KullanicilarinRolleriPostRequest
+
+@{
+    ViewData["Title"] = "KullaniciYetkilendirme";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("KullaniciYetkilendirme", "Kullanici", FormMethod.Post))
+{
+    @Html.Label("Yetkiler")
+    @Html.DropDownListFor(x=>x.RolID,(List<SelectListItem>)ViewBag.cv, new { @class = "form-control" })
+    <br />
+    <input type="hidden" asp-for="KullaniciID" value="@ViewBag.cv2" />
+    <button class="btn btn-info">Yetki Ver</button>
+}
+

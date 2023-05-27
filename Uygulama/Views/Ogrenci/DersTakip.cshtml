@@ -1,0 +1,33 @@
+﻿@using EgitimPortali.DTO
+@model List<DerslerDto>
+@{
+    ViewData["Title"] = "DersTakip";
+    Layout = "~/Views/Shared/_OgrenciLayout.cshtml";
+}
+
+<style type="text/css">
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<h5>Ders Takip Sayfası</h5>
+
+<div class="row">
+    @foreach (var x in Model)
+    {
+        <div class="wrapper wrapper-content animated fadeInUp">
+            <ul class="notes">
+                <li>
+                    <div>
+                        <h4>@x.Name</h4>
+                        <p>Lütfen kaldığınız yeri görmek için ders seçiniz...</p>
+                        <a href="/Ogrenci/IzlenilenDersler/@x.Id" class="btn btn-xs btn-outline btn-primary">Ders Takip</a>
+                        <br>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    }
+</div>

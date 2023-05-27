@@ -1,0 +1,31 @@
+﻿@using EgitimPortali.Request.Roller
+@model RollerUpdateRequest
+@{
+    ViewData["Title"] = "RolGuncelle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="ibox ">
+    <div class="ibox-title">
+        <h5>Yeni Rol Ekleme</h5>
+        <div class="ibox-tools">
+        </div>
+    </div>
+    <div class="ibox-content">
+        <form method="post">
+            <div class="form-group row">
+                <label class="col-lg-2 col-form-label">Rol Adı</label>
+                @Html.HiddenFor(x=>x.Id)
+                <div class="col-lg-10">
+                    @Html.TextBoxFor(x=>x.Name, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-lg-offset-2 col-lg-10">
+                    <button class="btn btn-sm btn-info" type="submit">Güncelle</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

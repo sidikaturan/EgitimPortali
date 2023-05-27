@@ -1,0 +1,273 @@
+﻿@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Merkeze Teğet</title>
+    <link href="//fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/Edu-School-Starter/assets/css/style-liberty.css">
+</head>
+
+<body>
+    <!-- header -->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/MerkezeTeget/Anasayfa">
+                    <i class="fas fa-graduation-cap"></i>Eğitim Portalı
+                </a>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                    <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/MerkezeTeget/Anasayfa">ANA SAYFA</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="TRUE">
+                                TYT <i class="fas fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown" data-bs-popper="none">
+                                <li><a class="dropdown-item" href="/MerkezeTeget/Konular/1">Türkçe</a></li>
+                                <li><a class="dropdown-item" href="/MerkezeTeget/Konular/7">Tarih</a></li>
+                                <li><a class="dropdown-item" href="/MerkezeTeget/Konular/8">Coğrafya</a></li>
+                                <li><a class="dropdown-item" href="/MerkezeTeget/Konular/9">Din Kültürü</a></li>
+                                <li><a class="dropdown-item" href="/MerkezeTeget/Konular/10">Felsefe</a></li>
+                                <li><a class="dropdown-item" href="/MerkezeTeget/Konular/2">Matematik</a></li>
+                                <li><a class="dropdown-item" href="/MerkezeTeget/Konular/3">Geometri</a></li>
+                                <li><a class="dropdown-item" href="/MerkezeTeget/Konular/4">Fizik</a></li>
+                                <li><a class="dropdown-item" href="/MerkezeTeget/Konular/5">Kimya</a></li>
+                                <li><a class="dropdown-item" href="/MerkezeTeget/Konular/6">Biyoloji</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="TRUE">
+                                AYT <i class="fas fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown" data-bs-popper="none">
+                                <li><a class="dropdown-item" href="/MerkezeTeget/Konular/11">Edebiyat</a></li>
+                                <li><a class="dropdown-item" href="/MerkezeTeget/Konular/12">Tarih</a></li>
+                                <li><a class="dropdown-item" href="/MerkezeTeget/Konular/13">Coğrafya</a></li>
+                                <li><a class="dropdown-item" href="/MerkezeTeget/Konular/14">Din Kültürü</a></li>
+                                <li><a class="dropdown-item" href="/MerkezeTeget/Konular/15">Felsefe</a></li>
+                                <li><a class="dropdown-item" href="/MerkezeTeget/Konular/16">Matematik</a></li>
+                                <li><a class="dropdown-item" href="/MerkezeTeget/Konular/17">Geometri</a></li>
+                                <li><a class="dropdown-item" href="/MerkezeTeget/Konular/18">Fizik</a></li>
+                                <li><a class="dropdown-item" href="/MerkezeTeget/Konular/19">Kimya</a></li>
+                                <li><a class="dropdown-item" href="/MerkezeTeget/Konular/20">Biyoloji</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="TRUE">
+                                KPSS <i class="fas fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown" data-bs-popper="none">
+                                <li><a class="dropdown-item" href="/MerkezeTeget/Konular/21">Türkçe</a></li>
+                                <li><a class="dropdown-item" href="/MerkezeTeget/Konular/22">Matematik</a></li>
+                                <li><a class="dropdown-item" href="/MerkezeTeget/Konular/23">Geometri</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="TRUE">
+                                DGS <i class="fas fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown" data-bs-popper="none">
+                                <li><a class="dropdown-item" href="/MerkezeTeget/Konular/24">Türkçe</a></li>
+                                <li><a class="dropdown-item" href="/MerkezeTeget/Konular/25">Matematik</a></li>
+                                <li><a class="dropdown-item" href="/MerkezeTeget/Konular/26">Geometri</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/MerkezeTeget/Iletisim">İLETİŞİM</a>
+                        </li>
+                        @if (User.Claims.Any())
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Ogrenci/Profilim">KULLANICI PANELİ</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Login/GirisYap">GİRİŞ YAP</a>
+                            </li>
+                        }
+
+
+                    </ul>
+                    <!-- search-right -->
+                    <div class="header-search position-relative">
+                        <div class="search-right mx-lg-2">
+                            <a href="#search" class="btn search-btn p-0" title="search">
+                                <i class="fas fa-search"></i>
+                            </a>
+                            <!-- search popup -->
+                            <div id="search" class="pop-overlay">
+                                <div class="popup">
+                                    <form action="#search" method="GET" class="search-box">
+                                        <input type="search" placeholder="Aranacak kelimeyi giriniz..." name="search"
+                                               required="required" autofocus="">
+                                        <button type="submit" class="btn">
+                                            <span class="fas fa-search"
+                                                  aria-hidden="true"></span>
+                                        </button>
+                                    </form>
+                                </div>
+                                <a class="close" href="#close">×</a>
+                            </div>
+                            <!-- //search popup -->
+                        </div>
+                    </div>
+                    <!--//search-right-->
+                </div>
+                <!-- toggle switch for light and dark theme -->
+                <div class="cont-ser-position">
+                    <nav class="navigation">
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox">
+                                <div class="mode-container">
+                                    <i class="gg-sun"></i>
+                                    <i class="gg-moon"></i>
+                                </div>
+                            </label>
+                        </div>
+                    </nav>
+                </div>
+                <!-- //toggle switch for light and dark theme -->
+            </nav>
+        </div>
+    </header>
+    @RenderBody()
+
+    <footer class="w3l-footer-29-main">
+        <div class="footer-29 pt-5 pb-4">
+            <div class="container pt-md-4">
+                <div class="row footer-top-29">
+                    <div class="col-lg-4 col-md-6 footer-list-29">
+                        <h6 class="footer-title-29">Bize Ulaşın</h6>
+
+                        <p class="mb-2">Telefon : <a href="tel:+90(545) 614 9310">+90(545) 614 9310</a></p>
+                        <p class="mb-2">Email : <a href="mailto:bilgi@merkezeteget.com">bilgi@merkezeteget.com</a></p>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-6 footer-list-29 mt-md-0 mt-4">
+                        <ul>
+                            <h6 class="footer-title-29">Bilgi</h6>
+                            <li><a href="#become-teacher">Hocalarımız</a></li>
+                            <li><a href="courses.html">Hakkımızda</a></li>
+                            <li><a href="/MerkezeTeget/Iletisim">İletişim</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-6 ps-lg-5 ps-lg-4 footer-list-29 mt-md-0 mt-4">
+                        <ul>
+                            <h6 class="footer-title-29">Üye Ol</h6>
+                            <li><a href="/Login/GirisYap">Giriş Yap</a></li>
+                            <li><a href="/Login/KayitOl">Kayıt Ol</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-8 footer-list-29 mt-lg-0 mt-4 ps-lg-5">
+                        <h6 class="footer-title-29">Abone Ol</h6>
+                        <form action="#" class="subscribe d-flex" method="post">
+                            <input type="email" name="email" placeholder="Mail adresi" required="">
+                            <button class="button-style">
+                                <span class="fa fa-paper-plane"
+                                      aria-hidden="true"></span>
+                            </button>
+                        </form>
+                        <p class="mt-3">Bizlere abone olarak derslerimizden hemen haberdar olabilirsiniz.</p>
+                    </div>
+                </div>
+                <!-- copyright -->
+                <!-- //copyright -->
+            </div>
+        </div>
+    </footer>
+    <!-- //footer block -->
+    <!-- Js scripts -->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fas fa-level-up-alt" aria-hidden="true"></span>
+    </button>
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("movetop").style.display = "block";
+            } else {
+                document.getElementById("movetop").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+    <!-- //move top -->
+    <!-- common jquery plugin -->
+    <script src="~/Edu-School-Starter/assets/js/jquery-3.3.1.min.js"></script>
+    <!-- //common jquery plugin -->
+    <!-- /counter-->
+    <script src="~/Edu-School-Starter/assets/js/counter.js"></script>
+    <!-- //counter-->
+    <!-- theme switch js (light and dark)-->
+    <script src="~/Edu-School-Starter/assets/js/theme-change.js"></script>
+    <!-- //theme switch js (light and dark)-->
+    <!-- MENU-JS -->
+    <script>
+        $(window).on("scroll", function () {
+            var scroll = $(window).scrollTop();
+
+            if (scroll >= 80) {
+                $("#site-header").addClass("nav-fixed");
+            } else {
+                $("#site-header").removeClass("nav-fixed");
+            }
+        });
+
+        //Main navigation Active Class Add Remove
+        $(".navbar-toggler").on("click", function () {
+            $("header").toggleClass("active");
+        });
+        $(document).on("ready", function () {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+            $(window).on("resize", function () {
+                if ($(window).width() > 991) {
+                    $("header").removeClass("active");
+                }
+            });
+        });
+    </script>
+    <!-- //MENU-JS -->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+        $(function () {
+            $('.navbar-toggler').click(function () {
+                $('body').toggleClass('noscroll');
+            })
+        });
+    </script>
+    <!-- //disable body scroll which navbar is in active -->
+    <!-- bootstrap -->
+    <script src="~/Edu-School-Starter/assets/js/bootstrap.min.js"></script>
+    <!-- //bootstrap -->
+    <!-- //Js scripts -->
+</body>
+
+</html>

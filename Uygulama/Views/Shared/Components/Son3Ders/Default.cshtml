@@ -1,0 +1,26 @@
+﻿@using EgitimPortali.DTO
+@model List<DersIcerikleriDto>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="sidebar-widget popular-posts">
+    <div class="sidebar-title">
+        <h4>Bu derslere de göz atın.</h4>
+    </div>
+    @foreach (var x in Model)
+    {
+        <article class="post">
+            <figure class="post-thumb">
+                <img src="@x.Resim" alt=""
+                 class="radius-image">
+            </figure>
+            <div class="text">
+                <a href="/MerkezeTeget/Ders/@x.Id">
+                    @x.Name
+                </a>
+            </div>
+            <div class="post-info">@x.CreatedAt</div>
+        </article>
+    }
+
+</div>

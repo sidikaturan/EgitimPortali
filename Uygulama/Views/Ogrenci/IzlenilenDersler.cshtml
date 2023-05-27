@@ -1,0 +1,134 @@
+﻿@model OgrenciDersTakip
+@{
+    ViewData["Title"] = "IzlenilenDersler";
+    Layout = "~/Views/Shared/_OgrenciLayout.cshtml";
+}
+<head>
+    <link href="~/admin/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+</head>
+
+<div class="row">
+
+    <div class="col-lg-12">
+        <div class="ibox">
+            <div class="ibox-title">
+                Matematik
+            </div>
+            <div class="ibox-content">
+                <div class="panel-group payments-method" id="accordion">
+                    @{
+                        int a = 0;
+                    }
+
+                    @foreach (var y in Model.Konular)
+                    {
+                        a++;
+                        <div class="panel panel-default">
+                            <div class="panel-heading">                               
+                                <h5 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#@y.Id"  aria-expanded="true">@a-) @y.Name</a>
+                                </h5>
+                            </div>
+                            <div id="@y.Id" class="panel-collapse collapse" style="">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h2>Konu İçerikleri</h2>
+                                            <br />
+                                            <table class="table table-hover">
+                                                <tbody>
+
+                                                    @foreach (var z in Model.DersIcerikleri.Where(v => v.KonularID == y.Id))
+                                                    {
+                                                        <tr>
+                                                            <td class="project-title">
+                                                                <a href="/MerkezeTeget/Ders/@z.Id">@z.Name</a>
+                                                                <br>
+                                                                <small></small>
+                                                            </td>
+                                                            <td class="project-actions">
+                                                                <a href="/MerkezeTeget/Ders/@z.Id" class="btn btn-outline-primary btn-sm"><i class="fa fa-link"></i> İçeriğe Git </a>
+                                                                @{
+                                                                    var deger = Model.DersTakip.Where(k => k.DersIcerikleriId == z.Id && k.Durum == true).FirstOrDefault();
+                                                                }
+                                                                @if (deger != null)
+                                                                {
+                                                                    <button data-id="@deger.Id" class="btn btn-primary btn-sm demo4"><i class="fa fa-check"></i> İzlendi </button>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <button data-id="@z.Id" class="btn btn-danger btn-sm demo5"><i class="fa fa-times"></i> İzlenmedi </button>
+                                                                }
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                    <script src="~/admin/js/jquery-3.1.1.min.js" type="text/javascript"></script>
+                    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                    <script>
+                        $('.demo4').on('click', function (event) {
+                            event.preventDefault();
+                            var btn = $(this);
+                            const url = $(this).attr('href');
+                            swal({
+                                title: 'Bu dersi izlenmedi olarak işaretlemek istediğinizden emin misiniz ?',
+                                text: "Daha sonra tekrardan izlendi olarak işaretleyebilirsiniz.",
+                                icon: 'info',
+                                buttons: ["Vazgeç", "Onayla!"],
+                            }).then(function (value) {
+                                if (value) {
+                                    var id = btn.data("id");
+                                    $.ajax({
+                                        url: "/Ogrenci/IzlemeGuncelle/" + id,
+                                        type: "post",
+                                        dataType: "json",
+                                        success: function (func) {
+                                            window.location.reload();
+                                        },
+                                        error: function (xhr, ajaxOptions, thrownError) {
+                                            window.location.reload();
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                        $('.demo5').on('click', function (event) {
+                            event.preventDefault();
+                            var btn = $(this);
+                            const url = $(this).attr('href');
+                            swal({
+                                title: 'Bu dersi izlendi olarak işaretlemek istediğinizden emin misiniz ?',
+                                text: "Daha sonra tekrardan izlenmedi olarak işaretleyebilirsiniz.",
+                                icon: 'info',
+                                buttons: ["Vazgeç", "Onayla!"],
+                            }).then(function (value) {
+                                if (value) {
+                                    var id = btn.data("id");
+                                    $.ajax({
+                                        url: "/Ogrenci/IzlemeEkle/" + id,
+                                        type: "post",
+                                        dataType: "json",
+                                        success: function (func) {
+                                            window.location.reload();
+                                        },
+                                        error: function (xhr, ajaxOptions, thrownError) {
+                                            window.location.reload();
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

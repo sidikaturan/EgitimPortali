@@ -1,0 +1,116 @@
+﻿@using EgitimPortali.Request.TestSoru
+@model TestSoruPostRequest
+@{
+    ViewData["Title"] = "SoruEkle";
+    Layout = "~/Views/Shared/_OgretmenLayout.cshtml";
+}
+
+<div class="col-lg-12">
+    <div class="ibox-title">
+        <h5>Soru Ekleme Sayfası</h5>
+    </div>
+    <div class="ibox-content">
+        <form method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="TestId" value="@ViewBag.id" />
+            <div class="form-group row">
+                <label class="col-lg-2 col-form-label">Soru*</label>
+                <div class="col-lg-10">
+                    @Html.TextBoxFor(x=>x.Soru, new { @class = "form-control" })
+                </div>
+                <br />
+                <br />
+                <label class="col-lg-2 col-form-label">Soru Görseli</label>
+                <div class="col-lg-10">               
+                    <input type="file" name="SoruGorsel" />
+                </div>
+            </div>
+            <br />
+            <div class="row col-12" id="writerget">
+                <div class="multi-fields col-lg-12">
+                    <div class="form-group row multi-field ">
+                        <label class="col-lg-2 col-form-label">A Şıkkı*</label>
+                        <div class="col-lg-10">
+                            @Html.TextBoxFor(x=>x.CevapA, new { @class = "form-control" })
+                        </div>
+                        <br />
+                        <br />
+                        <label class="col-lg-2 col-form-label">A Şıkkı Görseli</label>
+                        <div class="col-lg-10">
+                            <input type="file" name="GorselA" />
+                        </div>
+                        <br />
+                    </div>
+                    <div class="form-group row multi-field ">
+                        <label class="col-lg-2 col-form-label">B Şıkkı*</label>
+                        <div class="col-lg-10">
+                            @Html.TextBoxFor(x=>x.CevapB, new { @class = "form-control" })
+                        </div>
+                        <br />
+                        <br />
+                        <label class="col-lg-2 col-form-label">B Şıkkı Görseli</label>
+                        <div class="col-lg-10">
+                            <input type="file" name="GorselB" />
+                        </div>
+                        <br />
+                    </div>
+                    <div class="form-group row multi-field ">
+                        <label class="col-lg-2 col-form-label">C Şıkkı*</label>
+                        <div class="col-lg-10">
+                            @Html.TextBoxFor(x=>x.CevapC, new { @class = "form-control" })
+                        </div>
+                        <br />
+                        <br />
+                        <label class="col-lg-2 col-form-label">C Şıkkı Görseli</label>
+                        <div class="col-lg-10">
+                            <input type="file" name="GorselC" />
+                        </div>
+                        <br />
+                    </div>
+                    <div class="form-group row multi-field ">
+                        <label class="col-lg-2 col-form-label">D Şıkkı*</label>
+                        <div class="col-lg-10">
+                            @Html.TextBoxFor(x=>x.CevapD, new { @class = "form-control" })
+                        </div>
+                        <br />
+                        <br />
+                        <label class="col-lg-2 col-form-label">D Şıkkı Görseli</label>
+                        <div class="col-lg-10">
+                            <input type="file" name="GorselD" />
+                        </div>
+                        <br />
+                    </div>
+                    <div class="form-group row multi-field ">
+                        <label class="col-lg-2 col-form-label">E Şıkkı*</label>
+                        <div class="col-lg-10">
+                            @Html.TextBoxFor(x=>x.CevapE, new { @class = "form-control" })
+                        </div>
+                        <br />
+                        <br />
+                        <label class="col-lg-2 col-form-label">E Şıkkı Görseli</label>
+                        <div class="col-lg-10">
+                            <input type="file" name="GorselE" />
+                        </div>
+                        <br />
+                    </div>
+                    <div class="form-group row multi-field ">
+                        <label class="col-sm-2 col-form-label">Doğru Şık</label>
+                        <div class="col-sm-10">
+                            <select class="form-control m-b" name="DogruCevap">
+                                <option value="1">A</option>
+                                <option value="2">B</option>
+                                <option value="3">C</option>
+                                <option value="4">D</option>
+                                <option value="5">E</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            <button type="submit" style="float: right;" class="btn btn-primary">Soruyu Ekle</button>
+            <br />
+            <br />
+        </form>
+    </div>
+    <br />
+    <br />
+</div>
